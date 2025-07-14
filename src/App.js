@@ -5,11 +5,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme'; // Your custom theme
 
-// Import your Navbar component
+// Import your main components
 import Navbar from './components/Navbar';
-
-// Import your Footer component
-import Footer from './components/Footer'; // NEW: Import Footer
+import Footer from './components/Footer'; // Make sure this path is correct if your Footer.js is in src/components directly
+import CookieConsent from './components/CookieConsent';
+import ChatWidget from './components/ChatWidget';
 
 // Import your pages
 import HomePage from './pages/HomePage';
@@ -26,20 +26,24 @@ function App() {
         {/* Render Navbar here so it appears on all pages */}
         <Navbar />
 
-        {/* Define your routes directly. The content of the pages will go here. */}
+        {/* Define your routes. The content of the pages will go here. */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="questionnaire" element={<QuestionnairePage />} />
           <Route path="results" element={<ResultsPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="about" element={<AboutPage />} />
-          {/* You might want routes for Privacy Policy and Terms of Service too */}
-          {/* <Route path="privacy" element={<PrivacyPolicyPage />} /> */}
-          {/* <Route path="terms" element={<TermsOfServicePage />} /> */}
+          {/* Add more routes here if needed */}
         </Routes>
 
         {/* Render Footer here so it appears on all pages after the main content */}
-        <Footer /> {/* NEW: Render Footer */}
+        <Footer />
+
+        {/* Render CookieConsent. It will be fixed at the bottom. */}
+        <CookieConsent />
+
+        {/* Render ChatWidget. It will also be fixed on top of content. */}
+        <ChatWidget />
       </Router>
     </ThemeProvider>
   );
